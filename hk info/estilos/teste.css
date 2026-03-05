@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --cor-abismo: #05070a;
+    --cor-alma: #e0f2ff;
+    --cor-brilho-alma: rgba(130, 170, 255, 0.4);
+    --cor-borda: #2a2e38;
+    --cor-texto: #b0b8c4;
+    --detalhe-dourado: #f8e3a1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-abismo);
+    color: var(--cor-texto);
+    font-family: 'Lora', serif;
+    line-height: 1.8;
+    background-image: radial-gradient(circle at top, #12161f 0%, #05070a 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.menu-superior {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+.menu-superior button {
+    background: transparent;
+    border: none;
+    color: var(--cor-texto);
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    opacity: 0.8;
+}
+
+.menu-superior button:hover {
+    color: var(--cor-alma);
+    opacity: 1;
+    text-shadow: 0 0 10px var(--cor-brilho-alma);
+}
+
+header {
+    padding: 100px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+header::before, header::after {
+    content: "";
+    width: 60%;
+    max-width: 600px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+    position: absolute;
+    opacity: 0.6;
+}
+
+header::before { top: 70px; }
+header::after { bottom: 70px; }
+
+header h1::before, header h1::after {
+    content: "◈";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 0 0 15px var(--cor-brilho-alma);
+}
+
+header h1::before { top: -65px; }
+header h1::after { bottom: -65px; }
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    position: relative;
+    animation: pulsar 4s ease-in-out infinite;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    background: rgba(15, 18, 25, 0.6);
+    margin-bottom: 60px;
+    padding: 40px;
+    border: 1px solid var(--cor-borda);
+    position: relative;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -2px;
+    width: 15px; height: 15px;
+    border-top: 2px solid #5a6275;
+    border-left: 2px solid #5a6275;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; right: -2px;
+    width: 15px; height: 15px;
+    border-bottom: 2px solid #5a6275;
+    border-right: 2px solid #5a6275;
+}
+
+h2, h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--cor-alma);
+    margin: 20px 0;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--cor-brilho-alma);
+}
+
+section h1 {
+    font-size: 2.2rem;
+    color: var(--detalhe-dourado);
+    text-align: center;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    animation: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 60px auto;
+    border: 1px solid #333;
+    padding: 4px;
+    background: #000;
+    transition: all 0.5s ease;
+    filter: brightness(0.8) grayscale(20%);
+    outline: 1px solid rgba(255, 255, 255, 0.3);
+    outline-offset: 15px;
+    box-shadow: 
+        0 -16px 0 -15px #fff, 
+        0 16px 0 -15px #fff;
+}
+
+img:hover {
+    filter: brightness(1.1) grayscale(0%);
+    box-shadow: 
+        0 0 25px var(--cor-brilho-alma), 
+        0 -16px 0 -15px #fff, 
+        0 16px 0 -15px #fff;
+    transform: translateY(-5px);
+    outline-color: #fff;
+}
+
+img[width="350"] {
+    border-radius: 15px 0 15px 0;
+}
+
+a {
+    color: #82aaff;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #82aaff;
+}
+
+footer {
+    text-align: center;
+    padding: 60px;
+    color: #444;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    border-top: 1px solid #1a1e26;
+}
+
+@keyframes pulsar {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; letter-spacing: 8px; }
+    .menu-superior {
+        position: static;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+}
